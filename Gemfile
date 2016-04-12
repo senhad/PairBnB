@@ -29,6 +29,7 @@ gem 'omniauth-facebook'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'puma'
 gem "mini_magick"
+gem "braintree"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
