@@ -1,0 +1,30 @@
+<h1>My Reservations</h1>
+<% if signed_in?%>
+<h3> Welcome, <%=current_user.email %>!</h3>
+<% else %>
+<h3> Welcome, guest! </h3>
+<% end %>
+
+ 
+<table>
+  <tr>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% if @reservations.present? %>
+  <% @reservations.each do |reservation| %>
+  <tr>
+    <td><%= reservation.listing.description %></td>
+    <td><%= link_to "Show", [reservation.listing, reservation] %></td>
+    <td><%= link_to "Edit", edit_listing_reservation_path(reservation.listing, reservation) %></td>
+    <td><%= link_to "Remove", [reservation.listing, reservation], method: :delete, 'data-no-turbolink' => true %></td>     
+    <% end %>
+  </tr>
+<% end %>
+</table>
+ 
+<br>
+ 

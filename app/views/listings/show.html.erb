@@ -1,0 +1,30 @@
+<p>
+  <b>Description:</b>
+  <%=h @listing.description %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @listing.city %>
+</p>
+<p>
+  <b>Room Type:</b>
+  <%=h @listing.room_type %>
+</p>
+<p>
+  <b>Price:</b>
+  <%=h @listing.price %>
+</p>
+<p>
+  <b>Number of people who can be accomodated:</b>
+  <%= @listing.accomodates %>
+</p>
+ <% if @listing.images %>
+  <% @listing.images.each do |x| %>
+ <%=image_tag x.url %>
+<% end %>
+<% end %>
+ </p>
+
+
+
