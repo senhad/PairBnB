@@ -18,17 +18,6 @@ before_action :require_login
 	  end
 	end
 
-def cart_total_price
-  total_price = 0
-  get_cart_listing.each { |listing| total_price+= lisitng.price }
-  total_price
-end
-
-def get_cart_listings
-  cart_ids = $redis.smembers "cart#{id}"
-  Listing.find(cart_ids)
-end
-
 def user_params
  	params.require(:user).permit(:email,:image)
  end

@@ -43,6 +43,14 @@ class ListingsController < ApplicationController
 	    redirect_to listings_path
 	end
 
+	def search
+  		if params[:search].present?
+    		@listings = Listing.search(params[:search])
+  		else 
+    		@listings = Listing.all
+		end
+	end 
+
  private
 
  def listing_params

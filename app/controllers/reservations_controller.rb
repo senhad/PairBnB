@@ -1,9 +1,11 @@
 class ReservationsController < ApplicationController
 
  def index
-    @reservations = Reservation.all
+    # @reservations = Reservation.all
+    @user = User.find(params[:user_id])
+    @reservations = @user.reservations
     # @reservation = Reservation.find(params[:listing_id])
-    @listing = Listing.find(params[:listing_id])
+    # @listing = Listing.find(params[:listing_id])
   end
 
   def show
@@ -47,7 +49,7 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation = Reservation.find(params[:id])
-    @reservation.destroy
+    @reservation.destroy unless @reservation.nil?
     redirect_to(reservations_path)
   end
 

@@ -19,6 +19,7 @@
   <tr>
     <td><%= reservation.listing.description %></td>
     <td><%= link_to "Show", [reservation.listing, reservation] %></td>
+    <td><%= link_to "Pay Now", new_transaction_path + "?id=" + reservation.id.to_s %></td>
     <td><%= link_to "Edit", edit_listing_reservation_path(reservation.listing, reservation) %></td>
     <td><%= link_to "Remove", [reservation.listing, reservation], method: :delete, 'data-no-turbolink' => true %></td>     
     <% end %>

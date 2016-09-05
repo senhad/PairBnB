@@ -13,10 +13,21 @@
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <%= javascript_include_tag 'application2', 'data-turbolinks-track' => true %>
 
+<script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>
+       <script>
+         braintree.setup("<%=@client_token%>", "dropin", {
+           container: "payment-form"
+         });        </script>
+         
 <%= csrf_meta_tag %>
 
 
-
+<%= form_tag listings_search_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Look for a specific city" %>
+    <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+  </p>
+<% end %>
 
  <nav id="header" class="navbar navbar-fixed-top">
             <div id="header-container" class="container navbar-container">
@@ -32,8 +43,9 @@
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">About Us</a></li>
-                        <li><a href="/sign_up">Sign Up</a></li>
-                        <li><a href="/sign_in">Sign In</a></li>
+                        <li><a href="/listings">All Listings</a></li>
+                        <li><a href="/listings/new">New Listings</a></li>
+                        <li><a href="/sign_in">My Reservations</a></li>
                     </ul>
                 </div><!-- /.nav-collapse -->
             </div><!-- /.container -->
@@ -67,10 +79,6 @@
             </footer>
 
         </div><!--/.container-->
-
-
-
-
 
 
 

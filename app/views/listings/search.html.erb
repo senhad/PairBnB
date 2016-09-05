@@ -1,0 +1,7 @@
+<h1>Search Results</h1>
+<ul class="search-results-container">
+<% @listings.each do |l| %>
+  <%= link_to l.description, listing_path(l) %>
+  <br>
+<% end %>
+</ul>

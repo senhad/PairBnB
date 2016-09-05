@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'transactions/new'
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
   resources :users, only: [:show, :edit, :update, :destroy] 
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'users#show'
 
+    get '/listings/search' => 'listings#search'
  
     resources :listings do
        resources :reservations
@@ -23,6 +26,8 @@ Rails.application.routes.draw do
     resources :users do
       resources :reservations
     end 
+
+    resources :transactions, only: [:new, :create]
 
 
   # Example of regular route:

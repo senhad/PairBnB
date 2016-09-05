@@ -3,4 +3,6 @@ class Listing < ActiveRecord::Base
   has_many :reservations
   has_many :images
   mount_uploaders :images, ImageUploader
+  searchkick
 end
+

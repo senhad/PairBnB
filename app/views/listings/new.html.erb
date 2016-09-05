@@ -1,2 +1,32 @@
-<h1>New Listing</h1>
-<%= render partial: ('form') %>
+
+<%= form_for @listing, :html => {:multipart => true} do |f| %>
+<div class="container">  
+  <form id="contact" action="" method="post">
+    <h3>Create a new listing...</h3>
+    <h4>Get the instant confirmation.</h4>
+    <fieldset>
+      <%= f.text_field :description, placeholder: "Write a short description here", tabindex: "1" %>
+    </fieldset>
+    <fieldset>
+      <%= f.text_field :city, placeholder: "City", type: "text", tabindex: "2" %>
+    </fieldset>
+    <fieldset>
+      <%= f.text_field :room_type, placeholder: "Room Type i.e. master room, small room", type: "text", tabindex: "3" %>
+    </fieldset>
+    <fieldset>
+      <%= f.text_field :price, placeholder: "Price (in USD)", type:"text", tabindex: "4" %>
+    </fieldset>
+    <fieldset>
+      <%= f.text_field :accomodates, placeholder: "Number of people that room can accomodate", type: "text", tabindex: "5" %>
+    </fieldset>
+    <fieldset>
+      <%= f.file_field :images, multiple: true %>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+ 
+  
+</div>
+<% end %>
